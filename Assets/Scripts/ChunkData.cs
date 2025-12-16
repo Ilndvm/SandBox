@@ -8,7 +8,7 @@ public class ChunkData
     public World worldReference;
     public Vector3Int worldPosition; //position of the chunk in the world
 
-    public bool modifiedByPlayer = false;
+    public bool modifiedByThePlayer = false;
 
     public ChunkData(int chunkSize, int chunkHeight, World world, Vector3Int worldPosition) 
     { 

@@ -18,11 +18,11 @@ public class ChunkRenderer : MonoBehaviour
     {
         get
         {
-            return ChunkData.modifiedByPlayer;
+            return ChunkData.modifiedByThePlayer;
         }
         set
         {
-            ChunkData.modifiedByPlayer = value;
+            ChunkData.modifiedByThePlayer = value;
         }
     }
 
