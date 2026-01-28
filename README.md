@@ -13,15 +13,15 @@ Unity Engine
 C#
 Unity Input System
 
-Requirements
-Unity Hub
+Requirements:
+Unity Hub, 
 Unity Editor (editor version: 6000.0.37f1) 
 
-Notes
+Notes: 
 The project is intended for learning and experimentation.
 Performance depends on chunk drawing range and noise settings.
 All parameters are exposed and can be modified through the UI or scripts.
 
-License
+License: 
 This project is provided for educational use.
 Feel free to explore, modify, and extend it.
