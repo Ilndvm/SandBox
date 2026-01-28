@@ -9,5 +9,5 @@ public class NoiseSettings : ScriptableObject
     public Vector2Int worldOffset;
     public float persistance;
     public float redistributionModifier;
-    public float exponent;
+    public int exponent;
 }

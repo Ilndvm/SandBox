@@ -42,7 +42,7 @@ public class ChunkRenderer : MonoBehaviour
     {
         mesh.Clear();
 
-        mesh.subMeshCount = 2; //subMeshes are corresponding to a Material - it is beneficial for creating transparent Water material and defaault Ground material
+        mesh.subMeshCount = 2; //subMeshes are corresponding to transparent Water material and default Ground material
         mesh.vertices = meshData.vertices.Concat(meshData.waterMesh.vertices).ToArray(); //add water and ground vertices
 
         mesh.SetTriangles(meshData.triangles.ToArray(), 0); //separately set triangles for ground mesh
@@ -59,16 +59,17 @@ public class ChunkRenderer : MonoBehaviour
 
         meshCollider.sharedMesh = collisionMesh; //set brand new mesh to be a collider
     }
+    public void UpdateChunk(MeshData data)
+    {
+        RenderMesh(data);
+    }
 
     public void UpdateChunk()
     {
         RenderMesh(Chunk.GetChunkMeshData(ChunkData));
     }
 
-    public void UpdateChunk(MeshData data)
-    {
-        RenderMesh(data);
-    }
+    
 
 #if UNITY_EDITOR
     private void OnDrawGizmos() //draw Gizmo of a full size of the chunk (in the unity editor only)

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         if (player != null)
         {
-            return;
+            Destroy(player);
         }
         Vector3Int raycastStartPosition = new Vector3Int(world.chunkSize / 2, 100, world.chunkSize / 2);
         RaycastHit hit;
@@ -30,14 +30,12 @@ public class GameManager : MonoBehaviour
             StartCheckingTheMap();
         }
     }
-
     public void StartCheckingTheMap()
     {
         SetCurrentChunkCoordinates();
         StopAllCoroutines();
         StartCoroutine(CheckIfShouldLoadNextPosition());
     }
-
     IEnumerator CheckIfShouldLoadNextPosition()
     {
         yield return new WaitForSeconds(detectionTime);
@@ -52,7 +50,6 @@ public class GameManager : MonoBehaviour
             StartCoroutine(CheckIfShouldLoadNextPosition());
         }
     }
-
     private void SetCurrentChunkCoordinates()
     {
         currentPlayerChunkPosition = WorldDataHelper.ChunkPositionFromBlockCoords(world, Vector3Int.RoundToInt(player.transform.position));

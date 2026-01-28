@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if (GamePauseManager.IsPaused)
+            return;
+
         if (fly)
         {
             playerMovement.Fly(playerInput.MovementInput, playerInput.IsJumping, playerInput.IsRunning);

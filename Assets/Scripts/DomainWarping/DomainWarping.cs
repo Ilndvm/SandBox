@@ -17,9 +17,4 @@ public class DomainWarping : MonoBehaviour
         var noiseY = Noise.OctavePerlin(x, z, noiseDomainY) * amplitudeY;
         return new Vector2(noiseX, noiseY);
     }
-
-    public Vector2Int GenerateDomainOffsetInt(int x, int z)
-    {
-        return Vector2Int.RoundToInt(GenerateDomainOffset(x, z));
-    }
 }

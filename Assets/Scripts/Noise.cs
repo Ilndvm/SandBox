@@ -33,7 +33,7 @@ public static class Noise
         float total = 0;
         float frequency = 1;
         float amplitude = 1;
-        float amplitudeSum = 0; // used for normalizing result to 0.0 - 1.0 range
+        float amplitudeSum = 0; 
         for (int i = 0; i < settings.octaves; i++)
         {
             total += Mathf.PerlinNoise((settings.offset.x + settings.worldOffset.x + x) * frequency,

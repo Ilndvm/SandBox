@@ -5,7 +5,8 @@ public class BlockDataManager : MonoBehaviour
 {
     public static float textureOffset = 0.001f; //small offset to paint textures on mesh correctly (due to an error in storing floats)
     public static float tileSizeX, tileSizeY;
-    public static Dictionary<BlockType, TextureData> blockTextureDataDictionary = new Dictionary<BlockType, TextureData>();
+    public static Dictionary<BlockType, TextureData> blockTextureDataDictionary = 
+        new Dictionary<BlockType, TextureData>();
     public BlockDataSO textureData;
 
     private void Awake()

@@ -15,10 +15,7 @@ public class World : MonoBehaviour
     public TerrainGenerator terrainGenerator;
     public Vector2Int mapSeedOffset;
 
-    //Dictionary<Vector3Int, ChunkData> chunkDataDictionary = new Dictionary<Vector3Int, ChunkData>(); //data about chunks that are going to be generated
-    //Dictionary<Vector3Int, ChunkRenderer> chunkDictionary = new Dictionary<Vector3Int, ChunkRenderer>();
-
-    public UnityEvent OnWorldCreated, OnNewChunksGenerated;
+    public UnityEvent OnNewChunksGenerated;
 
     public WorldData worldData { get; private set; }
 
@@ -33,12 +30,12 @@ public class World : MonoBehaviour
         };
     }
 
-    public void GenerateWorld()
+    public void GenerateWorld() //method triggered by button
     {
         GenerateWorld(Vector3Int.zero);
     }
 
-    private void GenerateWorld(Vector3Int position) //method triggered by button
+    private void GenerateWorld(Vector3Int position) 
     {
         WorldGenerationData worldGenerationData = GetPositionsThatPlayerSees(position);
 
@@ -69,11 +66,11 @@ public class World : MonoBehaviour
             chunkRenderer.InitializeChunk(data);
             chunkRenderer.UpdateChunk(meshData);
         }
-        OnWorldCreated?.Invoke();
     }
     public void RemoveChunk(ChunkRenderer chunk)
     {
-        chunk.gameObject.SetActive(false);
+        Destroy(chunk.gameObject);
+        //chunk.gameObject.SetActive(false);
     }
 
     private WorldGenerationData GetPositionsThatPlayerSees(Vector3Int playerPosition)
@@ -95,7 +92,6 @@ public class World : MonoBehaviour
             chunkDataToRemove = chunkDataToRemove
         };
         return data;
-
     }
 
     public BlockType GetBlockFromChunkCoordinates(ChunkData chunkData, int x, int y, int z)
@@ -134,5 +130,29 @@ public class World : MonoBehaviour
         public Dictionary<Vector3Int, ChunkRenderer> chunkDictionary;
         public int chunkSize;
         public int chunkHeight;
+    }
+
+    public void ResetWorld()
+    {
+        if (worldData.chunkDictionary != null)
+        {
+            var keys = new List<Vector3Int>(worldData.chunkDictionary.Keys);
+            foreach (var pos in keys)
+            {
+                if (worldData.chunkDictionary.TryGetValue(pos, out ChunkRenderer renderer))
+                {
+                    if (renderer != null)
+                    {
+                        Destroy(renderer.gameObject);
+                    }
+                }
+            }
+            worldData.chunkDictionary.Clear();
+        }
+
+        if (worldData.chunkDataDictionary != null)
+        {
+            worldData.chunkDataDictionary.Clear();
+        }
     }
 }

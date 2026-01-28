@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fccc14ce17fed34e9d9ad051c5eda3b, type: 3}
-  m_Name: NoiseSettings
+  m_Script: {fileID: 11500000, guid: 6e24934d0162aee4fb29a47480e0079d, type: 3}
+  m_Name: WorldGenerationSettings
   m_EditorClassIdentifier: 
+  chunkDrawingRange: 6
+  mapSeedOffset: {x: -100, y: 3400}
+  waterLevel: 4
+  useDomainWarping: 1
   noiseZoom: 0.01
-  octaves: 5
-  offset: {x: -100, y: 3400}
-  worldOffset: {x: -100, y: 3400}
+  noiseOctaves: 5
   persistance: 0.5
   redistributionModifier: 1.2
   exponent: 5

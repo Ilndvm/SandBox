@@ -410,8 +410,8 @@
                 {
                     "name": "",
                     "id": "8f84ee8b-d0af-4421-9c02-34f6650da929",
-                    "path": "<Keyboard>/space",
-                    "interactions": "MultiTap",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Fly",

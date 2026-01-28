@@ -54,7 +54,8 @@ public static class Chunk
         }
 
         //get block from neighbour chunk if not in the range of current chunk
-        return chunkData.worldReference.GetBlockFromChunkCoordinates(chunkData, chunkData.worldPosition.x + x, chunkData.worldPosition.y + y, chunkData.worldPosition.z + z);
+        return chunkData.worldReference.GetBlockFromChunkCoordinates
+            (chunkData, chunkData.worldPosition.x + x, chunkData.worldPosition.y + y, chunkData.worldPosition.z + z);
     }
 
     public static void SetBlock(ChunkData chunkData, Vector3Int localPosition, BlockType block)

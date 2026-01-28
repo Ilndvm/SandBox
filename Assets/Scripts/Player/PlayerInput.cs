@@ -57,6 +57,15 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
+        if (GamePauseManager.IsPaused)
+        {
+            MovementInput = Vector3.zero;
+            MousePosition = Vector2.zero;
+            IsJumping = false;
+            IsRunning = false;
+            return;
+        }
+
         ReadMovement();
         ReadLook();
         ReadJump();
